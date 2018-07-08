@@ -87,6 +87,7 @@ session_start();
                 <?php
             //    echo
               //      " نام کاربری شما: ".$_SESSION['username'];
+              //      " نام کاربری شما: ".$_SESSION['username'] ldkz;xklk;;
                 ?>
             </p>
         </ul>
