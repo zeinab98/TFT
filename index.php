@@ -149,6 +149,35 @@
 <div class="row">
 <div class="col-md-6" dir="rtl">
     <div class="card container-fluid">
+        <?php
+      //  session_start();
+        if(isset($_SESSION['signup']) && $_SESSION['signup']=='success')
+        {
+            echo
+            '
+<div dir="rtl" style="font-family:aa ;color:firebrick; font-size: 25px">
+    <div class="panel panel-success" >
+    <div class="panel-heading">پیام</div >
+    <div class="panel-body">ثبت نام با موفقیت انجام شد و اطلاعات ثبت شد</div>
+    </div>
+</div>
+             ';
+            $_SESSION['signup']='empty';
+        }
+        if(isset($_SESSION['user-name']) && $_SESSION['user-name']=='logout')
+        {
+            echo
+            '
+<div dir="rtl" style="font-family:aa ;color:firebrick; font-size: 25px">
+    <div class="panel panel-success" >
+    <div class="panel-heading">پیام</div >
+    <div class="panel-body">با موفقیت خارج شدید</div>
+    </div>
+</div>
+             ';
+            $_SESSION['user-name'] = 'empty';
+        }
+        ?>
         <p style="font-family:b; font-size: 40px">
         ورود کاربران
         <br>
@@ -156,13 +185,28 @@
         <center>
         <form action="action-login.php" method="post">
             <br>
-            <input type="text" placeholder="نام کاربری" name="user-name" style="width:70%">
+            <input type="text" placeholder="نام کاربری" name="username" style="width:70%">
             <br>
             <input type="password" placeholder="رمز عبور" name="password" style="width:70%">
             <br><br>
             <button type="submit" class="btn mybutton">تایید</button>
         </form>
         </center>
+        <?php
+        if(isset($_SESSION['islogin']) && $_SESSION['islogin']=='false')
+        {
+            echo
+            '
+<div dir="rtl" style="font-family:aa ;color:firebrick; font-size: 25px">
+    <div class="panel panel-danger" >
+    <div class="panel-heading">پیام</div >
+    <div class="panel-body">نام کاربری یا رمز عبور اشتباه است</div>
+    </div>
+</div>
+                ';
+            $_SESSION['islogin']='empty';
+        }
+        ?>
         <a href="" target="_blank" style="font-size:30px;color: #663399">
       ورود به عنوان کاربر مهمان
         </a>
